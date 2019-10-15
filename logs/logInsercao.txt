@@ -1,0 +1,3 @@
+[2019-10-15 20:53:29] Log.INFO: Cadastro Realizado. NOMEMoto [] []
+[2019-10-15 20:55:09] Log.INFO: Cadastro Realizado. NOMEMoto [] []
+[2019-10-15 21:00:03] Log.INFO: Cadastro Realizado. nome categoria: Motos [] []

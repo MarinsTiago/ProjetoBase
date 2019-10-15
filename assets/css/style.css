@@ -1,0 +1,20 @@
+#divTable{
+    width: 100%;
+    /* background-color: #fffff0; */
+    background-color: black;
+}
+#teste{
+    padding: 2%;
+    border: 1px solid black;
+    text-align: center;
+}
+#teste td{
+    border-bottom: 1px solid black;
+    background-color: #ffffe0;
+    width: 100%;
+    height: 100%;
+    
+}
+#teste th{
+    border-bottom: 1px solid black;
+}

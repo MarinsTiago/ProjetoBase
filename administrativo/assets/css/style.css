@@ -1,0 +1,96 @@
+/* Table Base */
+
+table {
+    font-family: arial;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+    font-weight: normal;
+    font-size: 12px;
+    padding: 8px 15px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: middle;
+    border-top: 1px solid #dddddd;
+}
+
+.table thead th {
+    background: #eeeeee;
+    vertical-align: bottom;
+    font-weight: bold;
+}
+
+.table tbody>tr:nth-child(odd)>td,
+.table tbody>tr:nth-child(odd)>th {
+    background-color: #fafafa;
+}
+
+.table .t-small {
+    width: 5%;
+}
+
+.table .t-medium {
+    width: 15%;
+}
+
+
+/* Small Sizes */
+
+@media (max-width: 480px) {
+    .table-action thead {
+        display: none;
+    }
+    .table-action tr {
+        border-bottom: 1px solid #dddddd;
+    }
+    .table-action td {
+        border: 0;
+    }
+    .table-action td:not(:first-child) {
+        display: block;
+    }
+}
+
+.pagFix {
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+#nav {
+    margin-left: 20px;
+}
+
+.btnLogOut {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#formAlign {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.desc {
+    display: block;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.teste {
+    width: 900px;
+    margin: 0 auto;
+}
