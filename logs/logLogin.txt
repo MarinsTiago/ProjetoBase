@@ -1,0 +1,1 @@
+[2019-10-15 21:09:04] Log.INFO: Login realizado pelo usuário de login: 2 [] []

@@ -1,12 +1,7 @@
 <div class="container">  
-            <div style="display: inline-flex;">
-                <div>
-                    <a href="/projetoBase/administrativo/vendas/pdf">Gerar Arquivo Pdf</a>
-                </div>
-                <div>
-                    <a href="/projetoBase/administrativo/vendas/excel">Gerar Planílha</a>
-                </div>
-            </div>
+<script src="https://kit.fontawesome.com/fafd3dd167.js"></script>
+<link rel="stylesheet" href="../assets/css/style.css" />
+            
             <center><h4 style="margin-top: 20px;">Buscar vendas realizadas</h4></center>
             <form method="post" action="/projetoBase/administrativo/vendas/find">
             <div style="text-align: center; margin-top: 30px;">
@@ -15,6 +10,23 @@
                 <label>Até:</label>
                 <input type="date" name="dataAte"/>
                 <input type="submit" class="btn btn-success" value="Procurar"/>
+                <div id="gear" class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-cog"></i>
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div id="pdf">
+                                <i class="fas fa-file-pdf"></i> <a id="p" href="/projetoBase/administrativo/vendas/pdf">Gerar Pdf</a>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div id="excel">
+                                <i class="fas fa-file-excel"></i>  <a id="e" href="/projetoBase/administrativo/vendas/excel">Gerar Planílha</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
             </form>
         <div class="table-responsive">    

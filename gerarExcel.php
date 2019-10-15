@@ -13,7 +13,7 @@ $arquivo = "planilhaVendas.xls"; // nome do arivo para salvar e extensão que se
 
 $html="<div>";
     $html.= "
-    <h3 style='text-align: center;'>Lista de Produtos</h3>
+    <h3 style='text-align: center;'>Registro de Vendas</h3>
         <table border='1'>
             <tr>
                 <th>ID</th>

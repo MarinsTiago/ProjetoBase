@@ -1,5 +1,7 @@
 <?php
-
+require_once '../vendor/autoload.php';
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
     class usuarios extends model{
         
         private $id;
@@ -90,6 +92,12 @@
                 $sql->bindValue(":email", $u -> getEmail());
                 $sql->bindValue(":senha", $safe);
                 $sql->execute();
+
+                $log = new Logger('Log');
+                
+                $log->pushHandler(new StreamHandler('../logs/logInsercao.txt', Logger::INFO));
+                
+                $log->info("Cadastro efetuado pelo usuario com o id: ".$_SESSION['admLogin']);
             }else{
                 echo "Preencha todas as informações";
             }

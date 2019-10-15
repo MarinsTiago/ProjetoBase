@@ -94,3 +94,30 @@ table {
     width: 900px;
     margin: 0 auto;
 }
+#p{
+    color: red;
+    text-decoration: none;
+}
+#e{
+    color: green;
+    text-decoration: none;
+}
+#pdf{
+    margin-top: 1%;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    color: red;
+}
+#excel{
+    margin-top: 1%;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    color: green;
+}
+#gear{
+    float: right;
+    margin-left: -30%;
+    margin-right: 22%;
+}
