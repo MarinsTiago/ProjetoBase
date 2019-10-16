@@ -3,7 +3,7 @@
     require_once __DIR__ . '/vendor/autoload.php';
         $html.="<div style='background-color: #fffff0; width: 100%;'>";
             $html.= "
-            <h3 style='text-align: center;'>Lista de Produtos</h3>
+            <h3 style='text-align: center;'>Registro de Vendas</h3>
                 <table style='width:100%;' align='center'>
                     <tr style='background-color: #D3D3D3;'>
                         <th>ID</th>
@@ -26,7 +26,7 @@
                     endforeach;
             $html.="</table>";
         $html.="</div>";
-    $arquivo = "teste.pdf"; // nome do arivo para salvar
+    $arquivo = "vendas.pdf"; // nome do arivo para salvar
 
     $mpdf = new Mpdf();
     $mpdf->SetDisplayMode('fullpage');

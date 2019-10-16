@@ -20,7 +20,7 @@
         }
         public function loadObject($viewName, $viewData){
             extract($viewData);
-            include '/xampp/htdocs/ProjetoBase/'.$viewName.'.php';
+            include '/xampp/htdocs/projetoBase/'.$viewName.'.php';
         }
         public function loadTemplate($viewName, $viewData = array()){
         

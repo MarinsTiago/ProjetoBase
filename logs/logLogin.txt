@@ -1,1 +1,7 @@
 [2019-10-15 21:09:04] Log.INFO: Login realizado pelo usuário de login: 2 [] []
+[2019-10-16 14:58:21] Log.INFO: Login realizado pelo usuário de login: 2 [] []
+[2019-10-16 15:18:37] Log.INFO: Login realizado pelo usuário de login: 2 [] []
+[2019-10-16 15:31:58] Log.INFO: Login realizado pelo usuário de login: 2 [] []
+[2019-10-16 15:33:04] Log.INFO: Login realizado pelo usuário de login: 2 [] []
+[2019-10-16 15:37:38] Log.INFO: Login realizado pelo usuário de login: 2 [] []
+[2019-10-16 15:38:37] Log.INFO: Login realizado pelo usuário de login: 2 [] []

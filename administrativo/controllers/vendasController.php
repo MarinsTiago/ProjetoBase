@@ -30,13 +30,17 @@
 
         public function find(){
             $dados = array(
-                'datas' => array()
+                'datas'=> array()
             );
             $venda = new vendas();
             $dataDe = $_POST['dataDe'];
             $dataAte = $_POST['dataAte'];
             $dados['datas'] = $venda -> findData($dataDe, $dataAte);
             $this -> loadTemplate('vendasFind', $dados);
+
+            $_SESSION['d'] = $dataDe;
+            $_SESSION['a'] = $dataAte;
+
         }
         public function pdf(){
             $dados = array();
@@ -45,11 +49,65 @@
             $this->loadObject('gerarPdf', $dados);
 
         }
+        public function pdFind(){
+            $dados = array(
+                'datas'=> array()
+            );
+            $d = $_SESSION['d'];
+            $a = $_SESSION['a'];
+
+            $venda = new vendas();
+            $dados['vendas'] = $venda -> findData($d, $a);
+            $this -> loadObject('gerarPdf', $dados);
+        }
+        public function pdfAtualPg(){
+            $dados = array();
+
+            $limit = 5;
+            $offset = 0;
+
+            if(isset($_GET['p']) && !empty($_GET['p'])){
+                $p = addslashes($_GET['p']);           //verificação para direcionar a paginação dos produtos
+                $offset = ($limit * $p) - $limit;
+            } 
+            
+            $vendas = new vendas();
+
+           $dados['vendas'] = $vendas->listAllVendas($offset, $limit);
+           $this->loadObject('gerarPdf', $dados);
+        }
         public function excel(){
             $dados = array();
             $venda = new vendas();
             $dados['vendas'] = $venda->listAllVendasPdf();
             $this->loadObject('gerarExcel', $dados);
+        }
+        public function exFind(){
+            $dados = array(
+                'datas'=> array()
+            );
+            $d = $_SESSION['d'];
+            $a = $_SESSION['a'];
+
+            $venda = new vendas();
+            $dados['vendas'] = $venda -> findData($d, $a);
+            $this -> loadObject('gerarExcel', $dados);
+        }
+        public function excelAtualPg(){
+            $dados = array();
+
+            $limit = 5;
+            $offset = 0;
+
+            if(isset($_GET['p']) && !empty($_GET['p'])){
+                $p = addslashes($_GET['p']);           //verificação para direcionar a paginação dos produtos
+                $offset = ($limit * $p) - $limit;
+            } 
+            
+            $vendas = new vendas();
+
+           $dados['vendas'] = $vendas->listAllVendas($offset, $limit);
+           $this->loadObject('gerarExcel', $dados);
         }
     }
 

@@ -7,6 +7,23 @@
                 <label>Até:</label>
                 <input type="date" name="dataAte"/>
                 <input type="submit" class="btn btn-success" value="Procurar"/>
+                <div id="gear" class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-cog"></i>
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div id="pdf">
+                                <i class="fas fa-file-pdf"></i> <a id="p" href="/projetoBase/administrativo/vendas/pdFind">Gerar Pdf</a>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div id="excel">
+                                <i class="fas fa-file-excel"></i>  <a id="e" href="/projetoBase/administrativo/vendas/exFind">Gerar Planílha</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
             </form>
         <div class="table-responsive">

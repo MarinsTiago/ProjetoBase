@@ -16,13 +16,31 @@
                     <ul class="dropdown-menu">
                         <li>
                             <div id="pdf">
-                                <i class="fas fa-file-pdf"></i> <a id="p" href="/projetoBase/administrativo/vendas/pdf">Gerar Pdf</a>
+                            <?php
+                                $pagina = (isset($_GET['p']))? $_GET['p'] : 1; 
+                            ?>
+                                <i class="fas fa-file-pdf"></i> <a id="p" href="/projetoBase/administrativo/vendas/pdfAtualPg?p=<?php echo $pagina ?>">Pdf Pagina Atual</a>
                             </div>
                         </li>
-                        <li class="divider"></li>
+                        <div class="dropdown-divider"></div>
+                        <li>
+                            <div id="pdf">
+                                <i class="fas fa-file-pdf"></i> <a id="p" href="/projetoBase/administrativo/vendas/pdf">Pdf todas as paginas</a>
+                            </div>
+                        </li>
+                        <div class="dropdown-divider"></div>
                         <li>
                             <div id="excel">
-                                <i class="fas fa-file-excel"></i>  <a id="e" href="/projetoBase/administrativo/vendas/excel">Gerar Planílha</a>
+                            <?php
+                                $pagina = (isset($_GET['p']))? $_GET['p'] : 1; 
+                            ?>
+                                <i class="fas fa-file-excel"></i>  <a id="e" href="/projetoBase/administrativo/vendas/excelAtualPg?p=<?php echo $pagina ?>">Planílha Pagina Atual</a>
+                            </div>
+                        </li>
+                        <div class="dropdown-divider"></div>
+                        <li>
+                            <div id="excel">
+                                <i class="fas fa-file-excel"></i>  <a id="e" href="/projetoBase/administrativo/vendas/excel">Planílha todas as paginas</a>
                             </div>
                         </li>
                     </ul>
@@ -77,7 +95,7 @@
                 ?>    
                     <a  class="page-link" href="/projetoBase/administrativo/vendas?p=<?php echo ($pagina + 1) ?>">Proximo</a>  
                 <?php  }  ?>
-                <li class="page-item active"><a class="page-link" href="/projetoBase/administrativo/vendas?p=<?php echo ($conta -1); ?>">>></a></li>
+                <li class="page-item active"><a class="page-link" href="/projetoBase/administrativo/vendas?p=<?php echo ($conta); ?>">>></a></li>
                 </ul>
         </div> 
 </div>
