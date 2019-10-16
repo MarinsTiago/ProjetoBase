@@ -2,3 +2,4 @@
 [2019-10-15 20:55:09] Log.INFO: Cadastro Realizado. NOMEMoto [] []
 [2019-10-15 21:00:03] Log.INFO: Cadastro Realizado. nome categoria: Motos [] []
 [2019-10-15 21:26:12] Log.INFO: Cadastro efetuado pelo usuario com o id: 2 [] []
+[2019-10-16 11:37:33] Log.INFO: Cadastro realizado pelo usuario de id: 2 [] []

@@ -1,0 +1,1 @@
+[2019-10-16 11:34:56] Log.INFO: Edição efetuada pelo usuario de id: 2 No cadastro do usuario: 6 [] []

@@ -1,3 +1,11 @@
+<?php
+
+    $vendasPt;
+    $vendasSt;
+    $vendasTt;
+    $vendasQt;
+
+?>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 
@@ -8,12 +16,13 @@
         function drawChart() {
         //variavel com armazenamos os dados, um array de array's
         //no qual a primeira posição são os nomes das colunas
+        
         var data = google.visualization.arrayToDataTable([
         ['Trimestres', 'vendas'],
-        ['Primeiro Trimestre',20],
-        ['Segundo Trimestre', 30],
-        ['Terceiro Trimestre', 50],
-        ['Quarto Trimestre', 80]
+        ['Primeiro Trimestre', <?php echo $vendasPt?>],
+        ['Segundo Trimestre', <?php echo $vendasSt?>],
+        ['Terceiro Trimestre', <?php echo $vendasTt?>],
+        ['Quarto Trimestre', <?php echo $vendasQt ?>]
         ]);
         //opções para exibição do gráfico
         var options = {
@@ -34,5 +43,5 @@ google.setOnLoadCallback(drawChart);
           <h2>Seja bem vindo!</h2>
               <div  id="chart_div" style="width: 900px; height: 500px;"></div>
               
-        </div>
+        </div>    
     </div>  

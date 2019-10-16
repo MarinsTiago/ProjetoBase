@@ -2,6 +2,7 @@
 require_once '../vendor/autoload.php';
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+date_default_timezone_set("America/Sao_Paulo");
     class produtoAdm extends model{
 
         private $id;
@@ -123,8 +124,7 @@ use Monolog\Handler\StreamHandler;
 
                 $log = new Logger('Log');
                 $log->pushHandler(new StreamHandler('../logs/logInsercao.txt', Logger::INFO));
-                
-                $log->info("Cadastro Realizado. nome produto: ".$produto->getNome());
+                $log->info("Cadastro de PRODUTO Realizado pelo usuário de ID: ".$_SESSION['admLogin'].". produto: ".$produto->getNome());
             }else{
                 echo "Erro";
             }
@@ -142,10 +142,14 @@ use Monolog\Handler\StreamHandler;
                     $sql -> bindValue(":preco", $produto -> getPreco());
                     $sql -> bindValue(":qtde", $produto -> getQtde());
                     $sql -> bindValue(":descricao", $produto -> getDescricao());
-                    $sql -> bindValue(":idCategoria", $produto -> getIdCategoria());
-                    
+                    $sql -> bindValue(":idCategoria", $produto -> getIdCategoria()); 
                     $sql -> execute();
-                    }catch(PDOException $e){
+
+                    $log = new Logger('Log');
+                    $log->pushHandler(new StreamHandler('../logs/logInsercao.txt', Logger::INFO));
+                    $log->info("Edição de PRODUTO Realizado pelo usuário de ID: ".$_SESSION['admLogin'].". produto: ".$produto->getNome());
+                    
+                }catch(PDOException $e){
                         echo $e -> getMessage();
                         die;
                     }      
