@@ -36,7 +36,7 @@
             $dataDe = $_POST['dataDe'];
             $dataAte = $_POST['dataAte'];
             $dados['datas'] = $venda -> findData($dataDe, $dataAte);
-            $this -> loadTemplate('vendasFind', $dados);
+            $this -> loadView('vendasFind', $dados);
 
             $_SESSION['d'] = $dataDe;
             $_SESSION['a'] = $dataAte;
