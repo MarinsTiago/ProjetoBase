@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+
 <div class="container"> 
-        <div class="table-responsive">       
+        <div id="table" class="table-responsive">
+                
             <table class="table table-striped" style="margin-top: 10px;">
             <thead>
                 <tr>
@@ -32,6 +34,23 @@
                 </tr>
             <?php endforeach; ?>
             </table>
+            <?php $conta = ceil($totalUsuarios / $limit);?>
+                
+                <ul class="pagination justify-content-center">
+                    <li class="page-item active"><a class="page-link" href="/projetoBase/administrativo/usuarios?p=<?php echo 1; ?>"><<</a></li>
+                    <?php
+                        $pagina = (isset($_GET['p']))? $_GET['p'] : 1; 
+                        if ($pagina > 1) {
+                    ?>
+                        <a  class="page-link" href="/projetoBase/administrativo/usuarios?p=<?php echo ($pagina - 1) ?>">Anterior</a>
+                    <?php  }  ?>
+                    <?php
+                        if ($pagina < $conta) {
+                    ?>    
+                        <a  class="page-link" href="/projetoBase/administrativo/usuarios?p=<?php echo ($pagina + 1) ?>">Proximo</a>  
+                    <?php  }  ?>
+                    <li class="page-item active"><a class="page-link" href="/projetoBase/administrativo/usuarios?p=<?php echo $conta; ?>">>></a></li>
+                    </ul>
         </div>  
 </div>
 </body>

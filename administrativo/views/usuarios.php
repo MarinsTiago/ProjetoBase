@@ -12,17 +12,22 @@
     <script src="../administrativo/assets/js/script.js"></script>
 </head>
 <body>
-
 <div class="container"> 
-        <input class="form-control" type="text" name="nome" id="nome" placeholder="Buscar por..." style="margin-top:100px; width: 30%;"
-        <div class="table-responsive">
+        <form method="post">
+            <input class="form-control" type="text" name="nome" id="nome" placeholder="Buscar por..." style="margin-top:100px; width: 30%;">
+        </form>
+        <div id="table" class="table-responsive">
                 
             <table class="table table-striped" style="margin-top: 10px;">
             <thead>
                 <tr>
                     <th style="text-align: center;">ID</th>
                     <th style="text-align: center;">Nome</th>
+                    <th style="text-align: center;">CPF</th>
+                    <th style="text-align: center;">Idade</th>
+                    <th style="text-align: center;">Telefone</th>
                     <th style="text-align: center;">E-mail</th>
+                    <th style="text-align: center;">Sexo</th>
                     <th class="t-medium" colspan="2" style="text-align: center;">Ações</th>
                 </tr>
             </thead>
@@ -30,7 +35,11 @@
                 <tr>
                     <td style="text-align: center;"><?php echo $user['id']; ?></td>
                     <td style="text-align: center;"><?php echo $user['nome']; ?></td>
+                    <td style="text-align: center;"><?php echo $user['cpf']; ?></td>
+                    <td style="text-align: center;"><?php echo $user['idade']; ?></td>
+                    <td style="text-align: center;"><?php echo $user['telefone']; ?></td>
                     <td style="text-align: center;"><?php echo $user['email']; ?></td>
+                    <td style="text-align: center;"><?php echo $user['sexo']; ?></td>
                     <td>
                         <a href="/projetoBase/administrativo/usuarios/edit/<?php echo $user['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
                     </td>
@@ -58,8 +67,6 @@
                     <li class="page-item active"><a class="page-link" href="/projetoBase/administrativo/usuarios?p=<?php echo $conta; ?>">>></a></li>
                     </ul>
         </div>  
-        
 </div>
-
 </body>
 </html>

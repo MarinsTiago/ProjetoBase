@@ -109,6 +109,18 @@ date_default_timezone_set("America/Sao_Paulo");
             }
             return $qtde;
         }
+        public function listAjax($nome){
+            $produtos = array();
+            $nome = addslashes($nome);
+            $sql = " SELECT * FROM produtos WHERE nome LIKE :nome";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":nome", "%$nome%", PDO::PARAM_STR);
+            $sql->execute();
+            if($sql->rowCount() > 0){
+                $produtos = $sql -> fetchAll();
+            }
+            return $produtos;
+        }
 
         public function adicionar($produto){
             if(!empty($produto)){

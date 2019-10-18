@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/fafd3dd167.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
-    <script src="../administrativo/assets/js/script.js"></script>
-</head>
-<body>
 <div class="container">    
-        <form method="post">
-            <input class="form-control" type="text" name="nomeCat" id="nomeCat" placeholder="Buscar por..." style="margin-top:100px; width: 30%;">
-        </form>
-    <div id="tableCat" class="table-responsive">        
+    <div id="tableCad" class="table-responsive">        
         <table class="table table-striped" style="margin-top: 10px;">
             <thead>
                 <tr>
@@ -55,5 +40,3 @@
                   </ul>
     </div>
 </div>
-</body>
-</html>

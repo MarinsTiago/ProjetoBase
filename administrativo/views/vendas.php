@@ -10,6 +10,7 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
     <script src="../administrativo/assets/js/script.js"></script>
+    <script src="../administrativo/assets/js/jquery.mask.js"></script>
 </head>
 <body>
 <div class="container">  
@@ -17,9 +18,9 @@
             <form>
             <div style="text-align: center; margin-top: 30px;">
                 <label>De:</label>
-                <input type="text" name="dataDe" id="dataDe"/>
+                <input class="data" type="text" name="dataDe" id="dataDe"/>
                 <label>Até:</label>
-                <input type="text" name="dataAte" id="dataAte"/>
+                <input class="data" type="text" name="dataAte" id="dataAte"/>
                 <input type="button" id="filter" class="btn btn-success" value="Procurar"/>
                 <div id="gear" class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-cog"></i>

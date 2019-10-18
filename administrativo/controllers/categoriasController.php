@@ -23,6 +23,23 @@
 
             $this -> loadTemplate('categorias', $dados);
         }
+        public function viewAjax(){
+            $dados = array();
+            $offset = 0;
+            $limit = 4;
+ 
+            if(isset($_GET['p']) && !empty($_GET['p'])){
+                $p = addslashes($_GET['p']);           //verificação para direcionar a paginação dos produtos
+                $offset = ($limit * $p) - $limit;
+            }
+            $cat = new categorias();
+
+            $dados['categorias'] = $cat -> listAllCategoriasPagination($offset, $limit);
+            $dados['totalCategorias'] = $cat -> listTotalCategorias();
+            $dados['limit'] = $limit;
+
+            $this -> loadView("categoriasSemAjax", $dados);
+        }
 
         public function add(){
             $dados = array();
@@ -68,6 +85,15 @@
 
                 header("Location: /projetoBase/administrativo/categorias");
             }
+        }
+        public function findCatAjax(){
+            $dados = array(
+                'categorias' => array()
+            );
+            $categoria = new categorias();
+            $nome = addslashes($_POST['nomeCat']);
+            $dados['categorias'] = $categoria->listAjax($nome);
+            $this -> loadView('categoriasFind', $dados);
         }
     }
 ?>

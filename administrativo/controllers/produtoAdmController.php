@@ -24,6 +24,22 @@
 
             $this -> loadTemplate("produtoAdm", $dados);
         }
+        public function viewAjax(){
+            $dados = array();
+            $offset = 0;
+            $limit = 4;
+ 
+            if(isset($_GET['p']) && !empty($_GET['p'])){
+                $p = addslashes($_GET['p']);           //verificação para direcionar a paginação dos produtos
+                $offset = ($limit * $p) - $limit;
+            }
+            $prod = new produtoAdm(); 
+            $dados['totalProdutos'] = $prod -> listTotalProdutos();
+            $dados['produtos'] = $prod -> listAllProdutos($offset, $limit);
+            $dados['limit'] = $limit;
+    
+            $this -> loadView("produtoAdmSemAjax", $dados);
+        }
 
         
         public function add(){
@@ -100,6 +116,15 @@
 
                 header("Location: /projetoBase/administrativo/produtoAdm");
             }
+        }
+        public function findProdsAjax(){
+            $dados = array(
+                'produtos' => array()
+            );
+            $produto = new produtoAdm();
+            $nome = addslashes($_POST['nomeProd']);
+            $dados['produtos'] = $produto->listAjax($nome);
+            $this -> loadView('produtoAdmFind', $dados);
         }
     }
 

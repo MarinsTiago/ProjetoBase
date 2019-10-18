@@ -73,6 +73,18 @@ date_default_timezone_set("America/Sao_Paulo");
             }
             return $categoria;
         }
+        public function listAjax($nome){
+            $categorias = array();
+            $nome = addslashes($nome);
+            $sql = " SELECT * FROM categorias WHERE titulo LIKE :nome ";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":nome", "%$nome%", PDO::PARAM_STR);
+            $sql->execute();
+            if($sql->rowCount() > 0){
+                $categorias = $sql -> fetchAll();
+            }
+            return $categorias;
+        }
         public function adicionar($categoria){
             if(!empty($categoria)){
                 try{

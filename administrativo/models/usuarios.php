@@ -9,9 +9,17 @@ date_default_timezone_set("America/Sao_Paulo");
 
         private $nome;
 
+        private $cpf;
+
+        private $idade;
+
+        private $telefone;
+
         private $email;
 
         private $senha;
+
+        private $sexo;
 
         public function __construct(){
             parent::__construct();
@@ -28,6 +36,24 @@ date_default_timezone_set("America/Sao_Paulo");
         public function setNome($nome){
             $this->nome = $nome;
         }
+        public function getCpf(){
+            return $this->cpf;
+        }
+        public function setCpf($cpf){
+            $this->cpf = $cpf;
+        }
+        public function getIdade(){
+            return $this->idade;
+        }
+        public function setIdade($idade){
+            $this->idade = $idade;
+        }
+        public function getTelefone(){
+            return $this->telefone;
+        }
+        public function setTelefone($telefone){
+            $this->telefone = $telefone;
+        }
         public function getEmail(){
             return $this->email;
         }
@@ -39,6 +65,12 @@ date_default_timezone_set("America/Sao_Paulo");
         }
         public function setSenha($senha){
             $this->senha = $senha;
+        }
+        public function getSexo(){
+            return $this->sexo;
+        }
+        public function setSexo($sexo){
+            $this->sexo = $sexo;
         }
         public function listAllUsuarios($offset, $limit){
 
@@ -77,23 +109,39 @@ date_default_timezone_set("America/Sao_Paulo");
             }
             return $total;
         }
+        public function listAjax($nome){
+            $usuarios = array();
+            $nome = addslashes($nome);
+            $sql = " SELECT * FROM usuarios WHERE nome LIKE :nome ";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":nome", "%$nome%", PDO::PARAM_STR);
+            $sql->execute();
+            if($sql->rowCount() > 0){
+                $usuarios = $sql -> fetchAll();
+            }
+            return $usuarios;
+        }
         public function adicionar($u){   
             if(!empty($u)){
                 try{
                     $safe = md5($u->getSenha());
-                    $sql = "INSERT INTO usuarios SET nome = :nome, email = :email, senha = :senha";
+                    $sql = "INSERT INTO usuarios SET nome = :nome, cpf = :cpf, idade = :idade, telefone = :telefone, email = :email, senha = :senha, sexo = :sexo";
                     $sql = $this->db->prepare($sql);
-                    $sql->bindValue(":nome", $u -> getNome());
-                    $sql->bindValue(":email", $u -> getEmail());
+                    $sql->bindValue(":nome", $u->getNome());
+                    $sql->bindValue(":cpf", $u->getCpf());
+                    $sql->bindValue(":idade", $u->getIdade());
+                    $sql->bindValue(":telefone", $u->getTelefone());
+                    $sql->bindValue(":email", $u->getEmail());
                     $sql->bindValue(":senha", $safe);
+                    $sql->bindValue(":sexo", $u->getSexo());
                     $sql->execute();
 
                     $log = new Logger('Log');
                     $log->pushHandler(new StreamHandler('../logs/logInsercao.txt', Logger::INFO));
                     $log->info("Cadastro de Usuário realizado pelo usuario de id: ".$_SESSION['admLogin']);
                 }catch(Exception $e){
-                    $log->pushHandler(new StreamHandler('../logs/logErro.txt', Logger::WARNING));
-                    $log->info("Erro na inserção de usuário: ".$e);
+                    // $log->pushHandler(new StreamHandler('../logs/logErro.txt', Logger::WARNING));
+                    // $log->info("Erro na inserção de usuário: ".$e);
                 }
             }else{
                 echo "Preencha todas as informações";
@@ -103,12 +151,16 @@ date_default_timezone_set("America/Sao_Paulo");
             if(!empty($u) ){
                 try{
                     $safe = md5($u -> getSenha());
-                $sql = "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha WHERE id = :id";
+                $sql = "UPDATE usuarios SET nome = :nome, cpf = :cpf, idade = :idade, telefone = :telefone, email = :email, senha = :senha, sexo = :sexo WHERE id = :id";
                 $sql = $this->db->prepare($sql);
                 $sql -> bindValue(":id", $u -> getId());
-                $sql -> bindValue(":nome", $u -> getNome());
-                $sql -> bindValue(":email", $u -> getEmail());
-                $sql -> bindValue(":senha", $u -> $safe);
+                $sql->bindValue(":nome", $u -> getNome());
+                $sql->bindValue(":cpf", $u -> getCpf());
+                $sql->bindValue(":idade", $u -> getIdade());
+                $sql->bindValue(":telefone", $u -> getTelefone());
+                $sql->bindValue(":email", $u -> getEmail());
+                $sql->bindValue(":senha", $safe);
+                $sql->bindValue(":sexo", $u -> getSexo());
                 $sql -> execute();
 
                 $log = new Logger('Log');
